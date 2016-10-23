@@ -12,13 +12,9 @@ class ViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
 
-    let questions: [String] = ["From what is cognac made?",
-                               "What is 7+7?",
-                               "What is the capital of Vermont?"]
-    let answers: [String] = ["Grapes",
-                             "14",
-                             "Montpelier"]
-    var currentQuestionIndex: Int = 0
+    private let questions = ["From what is cognac made?", "What is 7+7?", "What is the capital of Vermont?"]
+    private let answers = ["Grapes", "14", "Montpelier"]
+    private var currentQuestionIndex = 0
 
     @IBAction func showNextQuestion(sender: AnyObject) {
         currentQuestionIndex += 1
