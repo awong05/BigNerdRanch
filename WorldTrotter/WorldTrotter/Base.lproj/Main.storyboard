@@ -84,6 +84,16 @@
             </objects>
             <point key="canvasLocation" x="1836" y="900"/>
         </scene>
+        <!--Web-->
+        <scene sceneID="Kit-rN-2Xz">
+            <objects>
+                <viewController id="tk9-fe-E1m" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Web" image="MapIcon" id="Xrw-Ev-SSH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZZ-bT-8mW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="899"/>
+        </scene>
         <!--Map-->
         <scene sceneID="JZ4-GP-66b">
             <objects>
@@ -100,12 +110,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="fZT-ox-R7s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="4Xi-fe-go0">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WWl-Da-Qm4"/>
                         <segue destination="7b1-XI-f3r" kind="relationship" relationship="viewControllers" id="khc-wN-MWy"/>
+                        <segue destination="tk9-fe-E1m" kind="relationship" relationship="viewControllers" id="9Kn-Mr-70y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCF-Wb-jmx" userLabel="First Responder" sceneMemberID="firstResponder"/>
