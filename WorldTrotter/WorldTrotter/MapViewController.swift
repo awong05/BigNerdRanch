@@ -12,6 +12,14 @@ import CoreLocation
 
 class MapViewController: UIViewController {
     private let kDistanceMeters: CLLocationDistance = 500
+    private let annotationCoordinates = { () -> [CLLocationCoordinate2D] in 
+        let coordinates = [(42.3601, -71.0589), (40.7128, -74.0059), (37.7749, -122.4194)]
+        let coordinateDegrees = coordinates.map { (CLLocationDegrees($0.0), CLLocationDegrees($0.1)) }
+
+        return coordinateDegrees.map { CLLocationCoordinate2D(latitude: $0.0, longitude: $0.1) }
+    }()
+
+    private var currentAnnotationIndex = 0
 
     var mapView: MKMapView!
 
@@ -24,6 +32,7 @@ class MapViewController: UIViewController {
         view = mapView
 
         // Adding segmented control subview.
+
         let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
@@ -43,21 +52,39 @@ class MapViewController: UIViewController {
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
 
-        // Adding button.
-        let button = UIButton()
-        button.backgroundColor = .white
-        button.setTitle("🏠", for: .normal)
+        // Adding user location zoom button.
+
+        let userZoomButton = UIButton()
+        userZoomButton.backgroundColor = .white
+        userZoomButton.setTitle("🏠", for: .normal)
         
-        button.addTarget(self, action: #selector(zoomOnUserLocation(_:)), for: .touchUpInside)
+        userZoomButton.addTarget(self, action: #selector(zoomOnUserLocation(_:)), for: .touchUpInside)
 
-        button.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(button)
+        userZoomButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(userZoomButton)
 
-        let buttonBottomConstraint = button.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8)
-        let buttonTrailingConstraint = button.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+        let zoomButtonBottomConstraint = userZoomButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8)
+        let zoomButtonTrailingConstraint = userZoomButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
 
-        buttonBottomConstraint.isActive = true
-        buttonTrailingConstraint.isActive = true
+        zoomButtonBottomConstraint.isActive = true
+        zoomButtonTrailingConstraint.isActive = true
+
+        // Adding pin cycling button.
+
+        let pinCyclingButton = UIButton()
+        pinCyclingButton.backgroundColor = .white
+        pinCyclingButton.setTitle("📍", for: .normal)
+
+        pinCyclingButton.addTarget(self, action: #selector(cycleThroughPinViews(_:)), for: .touchUpInside)
+
+        pinCyclingButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pinCyclingButton)
+
+        let pinButtonBottomConstraint = pinCyclingButton.bottomAnchor.constraint(equalTo: userZoomButton.topAnchor, constant: -8)
+        let pinButtonTrailingConstraint = pinCyclingButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
+
+        pinButtonBottomConstraint.isActive = true
+        pinButtonTrailingConstraint.isActive = true
     }
 
     override func viewDidLoad() {
@@ -71,7 +98,14 @@ class MapViewController: UIViewController {
         } else if CLLocationManager.authorizationStatus() != .denied {
             mapView.showsUserLocation = true
         }
+
+        for coordinate in annotationCoordinates {
+            let annotation = PinAnnotation(coordinate: coordinate)
+            mapView.addAnnotation(annotation)
+        }
     }
+
+    // MARK: - Event Handlers
 
     func mapTypeChanged(_ segControl: UISegmentedControl) {
         switch segControl.selectedSegmentIndex {
@@ -94,14 +128,50 @@ class MapViewController: UIViewController {
         let zoomRegion = MKCoordinateRegionMakeWithDistance(center, kDistanceMeters, kDistanceMeters)
         mapView.setRegion(zoomRegion, animated: true)
     }
+
+    func cycleThroughPinViews(_ button: UIButton) {
+        let annotationList = mapView.annotations.filter { $0 is PinAnnotation }
+
+        for annotation in annotationList {
+            let annotationView = mapView.view(for: annotation)
+            annotationView?.isHidden = true
+        }
+
+        let currentAnnotation = annotationList[currentAnnotationIndex]
+        let annotationView = mapView.view(for: currentAnnotation)
+        annotationView?.isHidden = false
+
+        currentAnnotationIndex += 1
+        if currentAnnotationIndex == annotationList.count {
+            currentAnnotationIndex = 0
+        }
+    }
 }
 
 // MARK: - MKMapView Delegate
 
 extension MapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "Landmark"
+
+        if annotation is PinAnnotation {
+            if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) {
+                return annotationView
+            } else {
+                let annotationView = MKPinAnnotationView(annotation: annotation as! PinAnnotation, reuseIdentifier: identifier)
+                annotationView.isHidden = true
+                return annotationView
+            }
+        }
+        return nil
+    }
+
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        let userAnnotationView = mapView.view(for: mapView.userLocation)
-        userAnnotationView?.isHidden = true
+        for view in views {
+            if view.annotation is MKUserLocation {
+                view.isHidden = true
+            }
+        }
     }
 }
 
