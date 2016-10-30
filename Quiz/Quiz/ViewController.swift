@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     private let questions = ["From what is cognac made?", "What is 7+7?", "What is the capital of Vermont?"]
     private let answers = ["Grapes", "14", "Montpelier"]
+    private let layoutGuide = UILayoutGuide()
     private var currentQuestionIndex = 0
 
     @IBAction func showNextQuestion(sender: AnyObject) {
@@ -45,6 +46,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         currentQuestionLabel.text = questions[currentQuestionIndex]
 
+        view.addLayoutGuide(layoutGuide)
+        layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+
         updateOffScreenLabel()
     }
 
@@ -57,9 +61,8 @@ class ViewController: UIViewController {
     func animateLabelTransitions() {
         view.layoutIfNeeded()
 
-        let screenWidth = view.frame.width
         self.nextQuestionLabelCenterXConstraint.constant = 0
-        self.currentQuestionLabelCenterXConstraint.constant += screenWidth
+        self.currentQuestionLabelCenterXConstraint.constant += layoutGuide.layoutFrame.width
 
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -83,7 +86,6 @@ class ViewController: UIViewController {
     }
 
     func updateOffScreenLabel() {
-        let screenWidth = view.frame.width
-        nextQuestionLabelCenterXConstraint.constant = -screenWidth
+        nextQuestionLabelCenterXConstraint.constant = -layoutGuide.layoutFrame.width
     }
 }
