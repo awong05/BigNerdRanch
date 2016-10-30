@@ -46,15 +46,11 @@ class MapViewController: UIViewController {
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(segmentedControl)
 
-        let topConstraint = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
-
         let margins = view.layoutMarginsGuide
-        let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
-        let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
 
-        topConstraint.isActive = true
-        leadingConstraint.isActive = true
-        trailingConstraint.isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8).isActive = true
+        segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
 
         // Adding user location zoom button.
 
@@ -67,11 +63,8 @@ class MapViewController: UIViewController {
         userZoomButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(userZoomButton)
 
-        let zoomButtonBottomConstraint = userZoomButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8)
-        let zoomButtonTrailingConstraint = userZoomButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-
-        zoomButtonBottomConstraint.isActive = true
-        zoomButtonTrailingConstraint.isActive = true
+        userZoomButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8).isActive = true
+        userZoomButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
 
         // Adding pin cycling button.
 
@@ -84,11 +77,8 @@ class MapViewController: UIViewController {
         pinCyclingButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pinCyclingButton)
 
-        let pinButtonBottomConstraint = pinCyclingButton.bottomAnchor.constraint(equalTo: userZoomButton.topAnchor, constant: -8)
-        let pinButtonTrailingConstraint = pinCyclingButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
-
-        pinButtonBottomConstraint.isActive = true
-        pinButtonTrailingConstraint.isActive = true
+        pinCyclingButton.bottomAnchor.constraint(equalTo: userZoomButton.topAnchor, constant: -8).isActive = true
+        pinCyclingButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
     }
 
     override func viewDidLoad() {
