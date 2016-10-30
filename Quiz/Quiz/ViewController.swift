@@ -63,12 +63,14 @@ class ViewController: UIViewController {
 
         UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       options: [.curveLinear],
+                       usingSpringWithDamping: 0.4,
+                       initialSpringVelocity: 0,
+                       options: [],
                        animations: {
                            self.currentQuestionLabel.alpha = 0
                            self.nextQuestionLabel.alpha = 1
 
-                          self.view.layoutIfNeeded()
+                           self.view.layoutIfNeeded()
                        },
                        completion: { _ in
                            swap(&self.currentQuestionLabel,
@@ -76,7 +78,7 @@ class ViewController: UIViewController {
                            swap(&self.currentQuestionLabelCenterXConstraint,
                                 &self.nextQuestionLabelCenterXConstraint)
 
-                          self.updateOffScreenLabel()
+                           self.updateOffScreenLabel()
                        })
     }
 
