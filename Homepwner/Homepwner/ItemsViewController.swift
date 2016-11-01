@@ -19,6 +19,7 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        tableView.backgroundView = UIImageView(image: UIImage(named: "Mock"))
     }
 
     // MARK: - Table View Data Source
@@ -27,12 +28,17 @@ class ItemsViewController: UITableViewController {
         return itemStore.allItems.count + 1
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row != itemStore.allItems.count ? 60 : 44
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
 
         if indexPath.row != itemStore.allItems.count {
             let item = itemStore.allItems[indexPath.row]
 
+            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
         } else {
