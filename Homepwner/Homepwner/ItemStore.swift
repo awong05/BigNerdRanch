@@ -24,4 +24,8 @@ class ItemStore {
 
         return newItem
     }
+
+    func sortedItems() -> [[Item]] {
+        return [allItems.filter { $0.valueInDollars > 50 }, allItems.filter { $0.valueInDollars < 50 }]
+    }
 }

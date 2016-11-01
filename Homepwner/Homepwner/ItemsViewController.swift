@@ -23,14 +23,18 @@ class ItemsViewController: UITableViewController {
 
     // MARK: - Table View Data Source
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.sortedItems()[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
 
-        let item = itemStore.allItems[indexPath.row]
+        let item = itemStore.sortedItems()[indexPath.section][indexPath.row]
 
         cell.textLabel?.text = item.name
         cell.detailTextLabel?.text = "$\(item.valueInDollars)"
