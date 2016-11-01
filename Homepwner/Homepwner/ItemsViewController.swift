@@ -24,16 +24,21 @@ class ItemsViewController: UITableViewController {
     // MARK: - Table View Data Source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
 
-        let item = itemStore.allItems[indexPath.row]
+        if indexPath.row != itemStore.allItems.count {
+            let item = itemStore.allItems[indexPath.row]
 
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        } else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
+        }
 
         return cell
     }
