@@ -14,6 +14,7 @@
 		AF44D9C91DC66786003F5CFA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9C81DC66786003F5CFA /* ItemsViewController.swift */; };
 		AF44D9CB1DC66813003F5CFA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9CA1DC66813003F5CFA /* Item.swift */; };
 		AF44D9CD1DC6815B003F5CFA /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9CC1DC6815B003F5CFA /* ItemStore.swift */; };
+		AF57BAEE1DC9765400673491 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57BAED1DC9765400673491 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AF44D9C81DC66786003F5CFA /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		AF44D9CA1DC66813003F5CFA /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AF44D9CC1DC6815B003F5CFA /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		AF57BAED1DC9765400673491 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				AF44D9C81DC66786003F5CFA /* ItemsViewController.swift */,
+				AF57BAED1DC9765400673491 /* ItemCell.swift */,
 				AF44D9CA1DC66813003F5CFA /* Item.swift */,
 				AF44D9CC1DC6815B003F5CFA /* ItemStore.swift */,
 				AF44D9B61DC664DC003F5CFA /* AppDelegate.swift */,
@@ -146,6 +149,7 @@
 				AF44D9CB1DC66813003F5CFA /* Item.swift in Sources */,
 				AF44D9CD1DC6815B003F5CFA /* ItemStore.swift in Sources */,
 				AF44D9B71DC664DC003F5CFA /* AppDelegate.swift in Sources */,
+				AF57BAEE1DC9765400673491 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +309,7 @@
 				AF44D9C71DC664DC003F5CFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

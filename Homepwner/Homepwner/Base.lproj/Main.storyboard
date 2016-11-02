@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -42,29 +43,44 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UITableViewCell" textLabel="KjG-1q-l9V" detailTextLabel="GmW-Rx-ftk" style="IBUITableViewCellStyleValue1" id="HOi-wD-cO6">
-                                <rect key="frame" x="0.0" y="88" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="HOi-wD-cO6" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HOi-wD-cO6" id="ui6-Qm-1lg">
-                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="64"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KjG-1q-l9V">
-                                            <frame key="frameInset" minX="15" minY="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLm-5v-nvx">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GmW-Rx-ftk">
-                                            <frame key="frameInset" minX="316" minY="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCp-j9-q4h">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldb-Ze-byN">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gLm-5v-nvx" firstAttribute="leading" secondItem="ui6-Qm-1lg" secondAttribute="leadingMargin" id="CML-Xh-5qs"/>
+                                        <constraint firstItem="gLm-5v-nvx" firstAttribute="top" secondItem="ui6-Qm-1lg" secondAttribute="topMargin" id="azz-Py-nsh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mCp-j9-q4h" secondAttribute="trailing" id="bZk-7t-EAr"/>
+                                        <constraint firstItem="ldb-Ze-byN" firstAttribute="bottom" secondItem="ui6-Qm-1lg" secondAttribute="bottomMargin" id="elT-Am-t8Z"/>
+                                        <constraint firstItem="ldb-Ze-byN" firstAttribute="leading" secondItem="gLm-5v-nvx" secondAttribute="leading" id="l5a-l3-6Kv"/>
+                                        <constraint firstItem="mCp-j9-q4h" firstAttribute="centerY" secondItem="ui6-Qm-1lg" secondAttribute="centerY" id="m8f-Bq-HFa"/>
+                                        <constraint firstItem="ldb-Ze-byN" firstAttribute="top" secondItem="gLm-5v-nvx" secondAttribute="bottom" constant="8" id="ymQ-Sx-u6A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="gLm-5v-nvx" id="I6q-er-SXF"/>
+                                    <outlet property="serialNumberLabel" destination="ldb-Ze-byN" id="nlx-dq-yOS"/>
+                                    <outlet property="valueLabel" destination="mCp-j9-q4h" id="LOd-0u-4KQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
