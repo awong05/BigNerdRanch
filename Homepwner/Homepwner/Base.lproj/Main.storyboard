@@ -167,6 +167,11 @@
                                             <action selector="takePicture:" destination="OrW-Oq-Sg4" id="jWv-Kb-4OR"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem systemItem="trash" id="zLz-VS-cjG">
+                                        <connections>
+                                            <action selector="removePicture:" destination="OrW-Oq-Sg4" id="gqb-xk-R2P"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
