@@ -14,6 +14,7 @@
 		AF44D9C91DC66786003F5CFA /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9C81DC66786003F5CFA /* ItemsViewController.swift */; };
 		AF44D9CB1DC66813003F5CFA /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9CA1DC66813003F5CFA /* Item.swift */; };
 		AF44D9CD1DC6815B003F5CFA /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44D9CC1DC6815B003F5CFA /* ItemStore.swift */; };
+		AF4F13811DCAE0210008C4FB /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4F13801DCAE0210008C4FB /* ImageStore.swift */; };
 		AF57BAEE1DC9765400673491 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57BAED1DC9765400673491 /* ItemCell.swift */; };
 		AF57BAF01DC9A89A00673491 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */; };
 		AF5FDB8D1DCAB8F700C27200 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */; };
@@ -30,6 +31,7 @@
 		AF44D9C81DC66786003F5CFA /* ItemsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		AF44D9CA1DC66813003F5CFA /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		AF44D9CC1DC6815B003F5CFA /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
+		AF4F13801DCAE0210008C4FB /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		AF57BAED1DC9765400673491 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				AF44D9BA1DC664DC003F5CFA /* Main.storyboard */,
 				AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */,
 				AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */,
+				AF4F13801DCAE0210008C4FB /* ImageStore.swift */,
 				AF44D9BD1DC664DC003F5CFA /* Assets.xcassets */,
 				AF44D9BF1DC664DC003F5CFA /* LaunchScreen.storyboard */,
 				AF44D9C21DC664DC003F5CFA /* Info.plist */,
@@ -159,6 +162,7 @@
 				AF809EC41DC9BD330054940C /* ItemTextField.swift in Sources */,
 				AF44D9CD1DC6815B003F5CFA /* ItemStore.swift in Sources */,
 				AF5FDB8D1DCAB8F700C27200 /* DatePickerViewController.swift in Sources */,
+				AF4F13811DCAE0210008C4FB /* ImageStore.swift in Sources */,
 				AF57BAF01DC9A89A00673491 /* DetailViewController.swift in Sources */,
 				AF44D9B71DC664DC003F5CFA /* AppDelegate.swift in Sources */,
 				AF57BAEE1DC9765400673491 /* ItemCell.swift in Sources */,

@@ -144,25 +144,41 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-Y7-SVJ">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-Y7-SVJ">
                                         <state key="normal" title="Change Date"/>
                                         <connections>
                                             <segue destination="KHl-zX-ULs" kind="show" identifier="ChangeDate" id="j74-UO-OWO"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="248" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="f2z-W1-d5M"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="KNL-N8-8cM" firstAttribute="leading" secondItem="H9g-iy-WZF" secondAttribute="leading" id="KIb-Xk-rPy"/>
                                     <constraint firstItem="H9g-iy-WZF" firstAttribute="leading" secondItem="bVh-Na-PSz" secondAttribute="leading" id="dni-M9-4zb"/>
                                 </constraints>
                             </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-4k-Apt">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="K1I-Ld-mDm"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="camera" id="jXu-LR-Wn8">
+                                        <connections>
+                                            <action selector="takePicture:" destination="OrW-Oq-Sg4" id="jWv-Kb-4OR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3x3-4k-Apt" secondAttribute="trailing" id="4eJ-sx-8Wf"/>
+                            <constraint firstItem="3x3-4k-Apt" firstAttribute="leading" secondItem="3Ul-Mt-ODV" secondAttribute="leading" id="5UJ-9g-AQt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="COm-AV-ExW" secondAttribute="trailing" id="5WI-Dh-rFy"/>
-                            <constraint firstItem="pnU-rO-PGf" firstAttribute="top" secondItem="COm-AV-ExW" secondAttribute="bottom" constant="8" id="JEv-nG-Cwo"/>
+                            <constraint firstItem="3x3-4k-Apt" firstAttribute="top" secondItem="COm-AV-ExW" secondAttribute="bottom" constant="8" id="S4v-OZ-nu4"/>
                             <constraint firstItem="COm-AV-ExW" firstAttribute="top" secondItem="t6n-8S-lp3" secondAttribute="bottom" constant="8" id="Sid-XZ-jlJ"/>
+                            <constraint firstItem="pnU-rO-PGf" firstAttribute="top" secondItem="3x3-4k-Apt" secondAttribute="bottom" id="dMc-Bt-AuU"/>
                             <constraint firstItem="COm-AV-ExW" firstAttribute="leading" secondItem="3Ul-Mt-ODV" secondAttribute="leadingMargin" id="dh2-Cc-XJs"/>
                         </constraints>
                         <connections>
@@ -171,6 +187,7 @@
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="SWK-zp-8bD" id="goz-ou-sXa"/>
+                        <outlet property="imageView" destination="f2z-W1-d5M" id="0mS-HR-Ukk"/>
                         <outlet property="nameField" destination="KNL-N8-8cM" id="tk9-f0-1lJ"/>
                         <outlet property="serialNumberField" destination="H9g-iy-WZF" id="Ojn-IE-yTd"/>
                         <outlet property="valueField" destination="bVh-Na-PSz" id="nKF-21-8mY"/>
