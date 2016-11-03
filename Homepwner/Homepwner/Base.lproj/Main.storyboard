@@ -144,6 +144,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-Y7-SVJ">
+                                        <state key="normal" title="Change Date"/>
+                                        <connections>
+                                            <segue destination="KHl-zX-ULs" kind="show" identifier="ChangeDate" id="j74-UO-OWO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="KNL-N8-8cM" firstAttribute="leading" secondItem="H9g-iy-WZF" secondAttribute="leading" id="KIb-Xk-rPy"/>
@@ -178,6 +184,43 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2018" y="143"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="Heq-Ut-3KS">
+            <objects>
+                <viewController id="KHl-zX-ULs" customClass="DatePickerViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pEx-b5-rDM"/>
+                        <viewControllerLayoutGuide type="bottom" id="GKr-uu-QmD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b49-No-Qkm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="nTd-QC-gGz">
+                                <date key="date" timeIntervalSinceReferenceDate="499824426.834409">
+                                    <!--2016-11-03 00:07:06 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChanged:" destination="KHl-zX-ULs" eventType="valueChanged" id="Wuj-D0-Z2G"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nTd-QC-gGz" firstAttribute="top" secondItem="pEx-b5-rDM" secondAttribute="bottom" constant="8" id="TDY-ZZ-6TN"/>
+                            <constraint firstAttribute="trailing" secondItem="nTd-QC-gGz" secondAttribute="trailing" id="Vpg-BS-YP2"/>
+                            <constraint firstItem="GKr-uu-QmD" firstAttribute="top" secondItem="nTd-QC-gGz" secondAttribute="bottom" constant="8" id="hwK-yY-h4k"/>
+                            <constraint firstItem="nTd-QC-gGz" firstAttribute="leading" secondItem="b49-No-Qkm" secondAttribute="leading" id="jTg-Qc-E5a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="nTd-QC-gGz" id="p7E-WY-b7e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tmo-bp-RkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2972" y="143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NgV-Od-gFC">
