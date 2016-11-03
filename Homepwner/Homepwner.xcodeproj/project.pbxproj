@@ -19,6 +19,7 @@
 		AF57BAF01DC9A89A00673491 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */; };
 		AF5FDB8D1DCAB8F700C27200 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */; };
 		AF809EC41DC9BD330054940C /* ItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF809EC31DC9BD330054940C /* ItemTextField.swift */; };
+		AFAB1F411DCB067900F4AFCF /* OverlayVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAB1F401DCB067900F4AFCF /* OverlayVIew.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		AF809EC31DC9BD330054940C /* ItemTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTextField.swift; sourceTree = "<group>"; };
+		AFAB1F401DCB067900F4AFCF /* OverlayVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayVIew.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				AF44D9BA1DC664DC003F5CFA /* Main.storyboard */,
 				AF5FDB8C1DCAB8F700C27200 /* DatePickerViewController.swift */,
 				AF57BAEF1DC9A89A00673491 /* DetailViewController.swift */,
+				AFAB1F401DCB067900F4AFCF /* OverlayVIew.swift */,
 				AF4F13801DCAE0210008C4FB /* ImageStore.swift */,
 				AF44D9BD1DC664DC003F5CFA /* Assets.xcassets */,
 				AF44D9BF1DC664DC003F5CFA /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF44D9C91DC66786003F5CFA /* ItemsViewController.swift in Sources */,
+				AFAB1F411DCB067900F4AFCF /* OverlayVIew.swift in Sources */,
 				AF44D9CB1DC66813003F5CFA /* Item.swift in Sources */,
 				AF809EC41DC9BD330054940C /* ItemTextField.swift in Sources */,
 				AF44D9CD1DC6815B003F5CFA /* ItemStore.swift in Sources */,

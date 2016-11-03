@@ -53,6 +53,10 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
 
+        let overlayView = OverlayView(frame: CGRect(x: 138, y: 244, width: 100, height: 100))
+        overlayView.backgroundColor = .clear
+        imagePicker.cameraOverlayView = overlayView
+
         present(imagePicker, animated: true, completion: nil)
     }
 
