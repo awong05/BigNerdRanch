@@ -14,6 +14,7 @@
 		AF003FCE1DCF872D00013584 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF003FCC1DCF872D00013584 /* LaunchScreen.storyboard */; };
 		AF003FD61DCF879800013584 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF003FD51DCF879800013584 /* Line.swift */; };
 		AF003FD81DCF8B2C00013584 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF003FD71DCF8B2C00013584 /* DrawView.swift */; };
+		AF5F053E1DD045CE007C77E1 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F053D1DD045CE007C77E1 /* Circle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AF003FCF1DCF872D00013584 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF003FD51DCF879800013584 /* Line.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		AF003FD71DCF8B2C00013584 /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		AF5F053D1DD045CE007C77E1 /* Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				AF003FCF1DCF872D00013584 /* Info.plist */,
 				AF003FD51DCF879800013584 /* Line.swift */,
 				AF003FD71DCF8B2C00013584 /* DrawView.swift */,
+				AF5F053D1DD045CE007C77E1 /* Circle.swift */,
 			);
 			path = TouchTracker;
 			sourceTree = "<group>";
@@ -97,7 +100,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Big Nerd Ranch";
 				TargetAttributes = {
 					AF003FBF1DCF872D00013584 = {
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5F053E1DD045CE007C77E1 /* Circle.swift in Sources */,
 				AF003FD61DCF879800013584 /* Line.swift in Sources */,
 				AF003FC61DCF872D00013584 /* ViewController.swift in Sources */,
 				AF003FD81DCF8B2C00013584 /* DrawView.swift in Sources */,
@@ -189,6 +193,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -239,6 +244,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -307,6 +313,7 @@
 				AF003FD41DCF872D00013584 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
