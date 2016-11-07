@@ -41,8 +41,16 @@ class DrawView: UIView {
     }
 
     override func draw(_ rect: CGRect) {
-        finishedLineColor.setStroke()
         for line in finishedLines {
+            let radians = atan2(abs(line.end.y - line.begin.y),
+                                abs(line.end.x - line.begin.x))
+            let degrees = radians * 180 / CGFloat(M_PI)
+
+            UIColor(red: degrees / 45,
+                    green: degrees / 90,
+                    blue: 1 - degrees / 135,
+                    alpha: 1.0).setStroke()
+
             strokeLine(line)
         }
 
