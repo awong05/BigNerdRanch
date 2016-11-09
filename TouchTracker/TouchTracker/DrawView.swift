@@ -25,6 +25,8 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     var currentCircle: Circle?
     var finishedCircles = [Circle]()
 
+    var permanentLineColor: UIColor?
+
     @IBInspectable var finishedLineColor: UIColor = UIColor.black {
         didSet {
             setNeedsDisplay()
@@ -102,8 +104,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
 
     func longPress(_ gestureRecognizer: UIGestureRecognizer) {
-        print("Recognized a long press")
-
         if gestureRecognizer.state == .began {
             let point = gestureRecognizer.location(in: self)
             selectedLineIndex = indexOfLineAtPoint(point)
@@ -146,6 +146,34 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         }
     }
 
+    func updateFinishedLineColor(_ button: UIButton) {
+        permanentLineColor = button.backgroundColor!
+        (button.superview as! UIStackView).removeFromSuperview()
+    }
+
+    func showColorPalette(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        let colors: [UIColor] = [.red, .blue, .green]
+        let colorPalette = UIStackView()
+        colorPalette.axis = .horizontal
+        colorPalette.alignment = .fill
+        colorPalette.distribution = .fillEqually
+        colorPalette.spacing = 5
+        colorPalette.translatesAutoresizingMaskIntoConstraints = false
+
+        for color in colors {
+            let button = UIButton()
+            button.backgroundColor = color
+            button.addTarget(self, action: #selector(DrawView.updateFinishedLineColor(_:)), for: .touchUpInside)
+            colorPalette.addArrangedSubview(button)
+        }
+
+        addSubview(colorPalette)
+        colorPalette.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        colorPalette.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+        colorPalette.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8).isActive = true
+        colorPalette.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+    }
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
@@ -166,6 +194,11 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         moveRecognizer.delegate = self
         moveRecognizer.cancelsTouchesInView = false
         addGestureRecognizer(moveRecognizer)
+
+        let swipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DrawView.showColorPalette(_:)))
+        swipeRecognizer.direction = .up
+        swipeRecognizer.numberOfTouchesRequired = 3
+        addGestureRecognizer(swipeRecognizer)
     }
 
     func strokeLine(_ line: Line) {
@@ -186,15 +219,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
     override func draw(_ rect: CGRect) {
         for line in finishedLines {
-            let radians = atan2(abs(line.end.y - line.begin.y),
-                                abs(line.end.x - line.begin.x))
-            let degrees = radians * 180 / CGFloat(M_PI)
-
-            UIColor(red: degrees / 45,
-                    green: degrees / 90,
-                    blue: 1 - degrees / 135,
-                    alpha: 1.0).setStroke()
-
+            line.color!.setStroke()
             strokeLine(line)
         }
 
@@ -235,7 +260,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         } else {
             for touch in touches {
                 let location = touch.location(in: self)
-                let newLine = Line(begin: location, end: location, thickness: nil)
+                let newLine = Line(begin: location, end: location, thickness: nil, color: nil)
                 let key = NSValue(nonretainedObject: touch)
                 
                 currentLines[key] = newLine
@@ -283,7 +308,20 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
                 if var line = currentLines[key] {
                     line.end = touch.location(in: self)
                     line.thickness = lineThickness
-                    
+
+                    if let color = permanentLineColor {
+                        line.color = color
+                    } else {
+                        let radians = atan2(abs(line.end.y - line.begin.y),
+                                            abs(line.end.x - line.begin.x))
+                        let degrees = radians * 180 / CGFloat(M_PI)
+                        
+                        line.color = UIColor(red: degrees / 45,
+                                             green: degrees / 90,
+                                             blue: 1 - degrees / 135,
+                                             alpha: 1.0)
+                    }
+
                     finishedLines.append(line)
                     currentLines.removeValue(forKey: key)
                 }

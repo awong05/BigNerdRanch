@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 import CoreGraphics
 
 struct Line {
     var begin = CGPoint.zero
     var end = CGPoint.zero
     var thickness: CGFloat?
+    var color: UIColor?
 }
