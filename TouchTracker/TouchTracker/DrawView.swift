@@ -139,6 +139,9 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
                 setNeedsDisplay()
             }
         } else {
+            let velocity = gestureRecognizer.velocity(in: self)
+            let speed = hypot(abs(velocity.x), abs(velocity.y))
+            lineThickness = sqrt(speed)
             return
         }
     }
@@ -167,7 +170,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
     func strokeLine(_ line: Line) {
         let path = UIBezierPath()
-        path.lineWidth = lineThickness
+        path.lineWidth = line.thickness ?? lineThickness
         path.lineCapStyle = .round
 
         path.move(to: line.begin)
@@ -177,7 +180,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
 
     func strokeCircle(_ circle: Circle) {
         let path = UIBezierPath(arcCenter: circle.center, radius: circle.radius, startAngle: 0, endAngle: CGFloat(2 * M_PI), clockwise: true)
-        path.lineWidth = lineThickness
+        path.lineWidth = 10
         path.stroke()
     }
 
@@ -232,7 +235,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
         } else {
             for touch in touches {
                 let location = touch.location(in: self)
-                let newLine = Line(begin: location, end: location)
+                let newLine = Line(begin: location, end: location, thickness: nil)
                 let key = NSValue(nonretainedObject: touch)
                 
                 currentLines[key] = newLine
@@ -279,6 +282,7 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
                 let key = NSValue(nonretainedObject: touch)
                 if var line = currentLines[key] {
                     line.end = touch.location(in: self)
+                    line.thickness = lineThickness
                     
                     finishedLines.append(line)
                     currentLines.removeValue(forKey: key)
