@@ -119,6 +119,12 @@ class DrawView: UIView, UIGestureRecognizerDelegate {
     }
 
     func moveLine(_ gestureRecognizer: UIPanGestureRecognizer) {
+        if let index = selectedLineIndex, index != indexOfLineAtPoint(gestureRecognizer.location(in: self)) {
+            if gestureRecognizer.state == .began {
+                selectedLineIndex = nil
+            }
+        }
+
         if let index = selectedLineIndex {
             if gestureRecognizer.state == .changed {
                 let translation = gestureRecognizer.translation(in: self)
