@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController, UICollectionViewDelegate {
+class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet var collectionView: UICollectionView!
 
     var store: PhotoStore!
@@ -37,6 +37,12 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
         }
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView.collectionViewLayout.invalidateLayout()
+
+        super.viewWillTransition(to: size, with: coordinator)
+    }
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let photo = photoDataSource.photos[indexPath.row]
 
@@ -50,6 +56,14 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate {
                 }
             }
         }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let spacing = layout.minimumInteritemSpacing * 3 + layout.sectionInset.left + layout.sectionInset.right
+        let size = (collectionView.bounds.width - spacing) / 4
+
+        return CGSize(width: size, height: size)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
