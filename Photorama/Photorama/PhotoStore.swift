@@ -53,11 +53,6 @@ class PhotoStore {
         let task = session.dataTask(with: request) {
             (data, response, error) in
 
-            if let response = response as? HTTPURLResponse {
-                print(response.statusCode)
-                print(response.allHeaderFields)
-            }
-
             let result = self.processImageRequest(data: data, error: error)
 
             if case let .success(image) = result {

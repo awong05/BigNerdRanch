@@ -24,6 +24,16 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         updateWithImage(nil)
     }
 
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+
+        if layoutAttributes.indexPath.item % 2 == 0 {
+            layer.anchorPoint = CGPoint(x: 0, y: 0.5)
+        } else {
+            layer.anchorPoint = CGPoint(x: 1, y: 0.5)
+        }
+    }
+
     func updateWithImage(_ image: UIImage?) {
         if let imageToDisplay = image {
             spinner.stopAnimating()

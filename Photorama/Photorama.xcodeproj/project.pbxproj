@@ -18,6 +18,7 @@
 		AF0806E01DD45D2A00E3ACE0 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0806DF1DD45D2A00E3ACE0 /* PhotoDataSource.swift */; };
 		AF0806E21DD45FF500E3ACE0 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0806E11DD45FF500E3ACE0 /* PhotoCollectionViewCell.swift */; };
 		AF858FA01DD7707E00FC26D0 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF858F9F1DD7707E00FC26D0 /* PhotoInfoViewController.swift */; };
+		AFC3B3731DDACF0800EBEEAE /* PhotosLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC3B3721DDACF0800EBEEAE /* PhotosLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AF0806DF1DD45D2A00E3ACE0 /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
 		AF0806E11DD45FF500E3ACE0 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AF858F9F1DD7707E00FC26D0 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
+		AFC3B3721DDACF0800EBEEAE /* PhotosLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				AF0806DF1DD45D2A00E3ACE0 /* PhotoDataSource.swift */,
 				AF0806E11DD45FF500E3ACE0 /* PhotoCollectionViewCell.swift */,
 				AF858F9F1DD7707E00FC26D0 /* PhotoInfoViewController.swift */,
+				AFC3B3721DDACF0800EBEEAE /* PhotosLayout.swift */,
 			);
 			path = Photorama;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				AF0806DC1DD417AE00E3ACE0 /* PhotoStore.swift in Sources */,
 				AF0806E01DD45D2A00E3ACE0 /* PhotoDataSource.swift in Sources */,
 				AF0806E21DD45FF500E3ACE0 /* PhotoCollectionViewCell.swift in Sources */,
+				AFC3B3731DDACF0800EBEEAE /* PhotosLayout.swift in Sources */,
 				AF858FA01DD7707E00FC26D0 /* PhotoInfoViewController.swift in Sources */,
 				AF0806C61DD4064600E3ACE0 /* AppDelegate.swift in Sources */,
 				AF0806DE1DD41B0900E3ACE0 /* Photo.swift in Sources */,
