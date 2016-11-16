@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 enum Method: String {
     case recentPhotos = "flickr.photos.getRecent"
@@ -58,7 +59,7 @@ struct FlickrAPI {
         return components.url!
     }
 
-    private static func photoFromJSONObject(_ json: [String: Any]) -> Photo? {
+    private static func photoFromJSONObject(_ json: [String: Any], inContext context: NSManagedObjectContext) -> Photo? {
         guard let photoID = json["id"] as? String,
               let title = json["title"] as? String,
               let dateString = json["datetaken"] as? String,
@@ -67,15 +68,37 @@ struct FlickrAPI {
               let dateTaken = dateFormatter.date(from: dateString) else {
             return nil
         }
+
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Photo")
+        let predicate = NSPredicate(format: "photoID == \(photoID)")
+        fetchRequest.predicate = predicate
+
+        var fetchedPhotos = [Photo]()
+        context.performAndWait() {
+            fetchedPhotos = try! context.fetch(fetchRequest) as! [Photo]
+        }
+
+        if fetchedPhotos.count > 0 {
+            return fetchedPhotos.first
+        }
+
+        var photo: Photo!
+        context.performAndWait {
+            photo = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as! Photo
+            photo.title = title
+            photo.photoID = photoID
+            photo.remoteURL = url
+            photo.dateTaken = dateTaken
+        }
         
-        return Photo(title: title, photoID: photoID, remoteURL: url, dateTaken: dateTaken)
+        return photo
     }
 
     static func recentPhotosURL() -> URL {
         return flickrURL(method: .recentPhotos, parameters: ["extras": "url_h,date_taken"])
     }
 
-    static func photosFromJSONData(_ data: Data) -> PhotosResult {
+    static func photosFromJSONData(_ data: Data, inContext context: NSManagedObjectContext) -> PhotosResult {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
             guard let jsonDictionary = jsonObject as? [String: Any],
@@ -87,7 +110,7 @@ struct FlickrAPI {
             var finalPhotos = [Photo]()
 
             for photoJSON in photosArray {
-                if let photo = photoFromJSONObject(photoJSON) {
+                if let photo = photoFromJSONObject(photoJSON, inContext: context) {
                     finalPhotos.append(photo)
                 }
             }
