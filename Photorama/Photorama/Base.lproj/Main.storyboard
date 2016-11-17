@@ -97,10 +97,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rtI-2w-FmF">
                                 <rect key="frame" x="16" y="64" width="343" height="603"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Views" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uy2-Ve-tzk">
+                                <rect key="frame" x="157.5" y="638" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rtI-2w-FmF" firstAttribute="leading" secondItem="1Oz-JI-ruT" secondAttribute="leadingMargin" id="JGz-CZ-qab"/>
+                            <constraint firstItem="Uy2-Ve-tzk" firstAttribute="centerX" secondItem="1Oz-JI-ruT" secondAttribute="centerX" id="T06-XM-mj2"/>
+                            <constraint firstItem="1jR-CO-UGw" firstAttribute="top" secondItem="Uy2-Ve-tzk" secondAttribute="bottom" constant="8" id="ZiS-4w-Tuu"/>
                             <constraint firstItem="1jR-CO-UGw" firstAttribute="top" secondItem="rtI-2w-FmF" secondAttribute="bottom" id="iFA-Oq-Eea"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rtI-2w-FmF" secondAttribute="trailing" id="rAs-Tf-Ik2"/>
                             <constraint firstItem="rtI-2w-FmF" firstAttribute="top" secondItem="Mmk-UR-OhG" secondAttribute="bottom" id="y4e-ka-VR0"/>
@@ -108,11 +116,12 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="rtI-2w-FmF" id="qLP-fC-IWR"/>
+                        <outlet property="viewCounter" destination="Uy2-Ve-tzk" id="t0Z-c1-pBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKu-5g-BPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="793"/>
+            <point key="canvasLocation" x="1752.8" y="792.95352323838085"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hdf-Bh-dTY">

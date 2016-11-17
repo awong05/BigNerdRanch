@@ -14,6 +14,7 @@ extension Photo {
     }
 
     @NSManaged public var dateTaken: Date
+    @NSManaged public var numberOfViews: Int64
     @NSManaged public var photoID: String
     @NSManaged public var photoKey: String
     @NSManaged public var remoteURL: URL

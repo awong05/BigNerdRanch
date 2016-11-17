@@ -20,5 +20,6 @@ public class Photo: NSManagedObject {
         remoteURL = URLComponents().url!
         photoKey = UUID().uuidString
         dateTaken = Date()
+        numberOfViews = 0
     }
 }

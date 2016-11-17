@@ -10,6 +10,7 @@ import UIKit
 
 class PhotoInfoViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var viewCounter: UILabel!
 
     var photo: Photo! {
         didSet {
@@ -21,6 +22,15 @@ class PhotoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        do {
+            photo.numberOfViews += 1
+            try store.coreDataStack.saveChanges()
+        } catch {
+            print("Failed to increment view tracker.")
+        }
+
+        viewCounter.text = "\(photo.numberOfViews) Views"
+        
         store.fetchImageForPhoto(photo) { result in
             switch result {
             case let .success(image):
