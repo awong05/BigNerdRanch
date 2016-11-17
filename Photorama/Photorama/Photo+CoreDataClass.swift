@@ -22,4 +22,14 @@ public class Photo: NSManagedObject {
         dateTaken = Date()
         numberOfViews = 0
     }
+
+    func addTagObject(_ tag: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tags")
+        currentTags.add(tag)
+    }
+
+    func removeTagObject(_ tag: NSManagedObject) {
+        let currentTags = mutableSetValue(forKey: "tags")
+        currentTags.remove(tag)
+    }
 }
